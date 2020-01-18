@@ -1,0 +1,39 @@
+<div class="col-md-4 offset-md-4 mt-4">
+    <form #loginform='ngForm' (ngSubmit)='submitForm(loginForm)'>
+        <div class="card">
+            <div class="card-header">
+                Please Login
+            </div>
+            <div class="card-body">
+            <div class="form-group">
+                <label for="username">UserName</label>
+                <input type="username" name="username" id="username" #username='ngModel' ngModel class="form-control"
+                    required placeholder="Enter Your Name">
+                <div *ngIf='username.invalid && username.touched'>
+                    <div class="alert alert-danger" *ngIf='username.errors.required'>
+                        UserName is Mandatory
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" #password='ngModel' ngModel class="form-control"
+                    required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,8}$">
+                <div *ngIf='password.invalid && password.touched'>
+                    <div class="alert alert-danger" *ngIf='password.errors.required'>
+                        This Field Is Mandatory
+                    </div>
+                </div>
+                <div class="alert alert-danger" *ngIf='password.errors.pattern'>
+                    4 to 8 char, should include one uppercase, one lowercase and one number
+                </div>
+            </div>
+            </div>
+            <div class="card-footer">
+            <button type="submit" class="btn btn-primary float-right">
+                Login
+            </button>
+            </div>
+        </div>
+    </form>
+</div>

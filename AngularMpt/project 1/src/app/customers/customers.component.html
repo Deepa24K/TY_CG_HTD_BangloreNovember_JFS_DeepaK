@@ -1,0 +1,35 @@
+<div class="col-md-4 offset-4 mt-3 mb-3">
+    <input type="search" name="search" class="form-control"
+    [(ngModel)] ='search' placeholder="Enter the CustomerName">
+</div>
+
+<div class="alert alert-danger" *ngIf='message'>{{message}}
+    <span class="float-right">
+        <button (click)='deleteMessage()'>&times;</button>
+    </span>
+</div>
+<div class="col-md-3 float-left mt-3" 
+*ngFor='let customer of Customers'>
+    <div class="card">
+        <div class="card-header">
+            {{customer.customerName }}
+        </div>
+        <div class="card-body">
+            <img [src]="customer.customerImage" alt="product image"
+            height="200px" width="100%">
+        </div>
+        <div class="card-footer">
+            <div class="btn-group col-md-12">
+                <button class="btn btn-outline-success">
+                    Update
+                </button>
+                <button class="btn btn-outline-dark"
+                    (click)='deleteCustomer(customer)'>
+                    Delete
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

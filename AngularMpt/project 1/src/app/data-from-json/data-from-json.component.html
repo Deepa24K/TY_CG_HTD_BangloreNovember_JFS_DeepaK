@@ -1,0 +1,6 @@
+<div class="col-md-4 card float-left" *ngFor='let product of Products'>
+    <img src="{{product.url}}" alt="" height="250px"
+    class="card-img-top">
+    <h4 class="text-center">{{product.name}}</h4>
+    <p>Rs: {{product.cost}}</p>
+</div>
